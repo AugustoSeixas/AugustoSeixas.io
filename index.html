@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Curadoria pessoal de recursos para IA, programação, pesquisa acadêmica e produtividade. Por Augusto Seixas.">
+  <meta name="author" content="Augusto Seixas">
+  <meta name="color-scheme" content="light dark">
+  <title>Sites Úteis em 2026</title>
+
+  <!-- Tipografia: Fraunces (display, serifada com caráter) + Inter Tight para corpo técnico -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,900&family=Spline+Sans+Mono:wght@400;500;600&family=Spline+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ============================================================
+       TOKENS DE DESIGN
+       ============================================================ */
+    :root {
+      /* Tema claro (padrão) — paleta "papel & tinta", editorial */
+      --bg: #f4f1ea;
+      --bg-elevated: #fbfaf6;
+      --bg-card: #ffffff;
+      --ink: #1a1814;
+      --ink-soft: #4a463e;
+      --ink-faint: #837c6e;
+      --line: #ddd6c8;
+      --line-strong: #c4bba8;
+      --accent: #9a3412;
+      --accent-soft: #c2410c;
+      --accent-bg: #fdeee5;
+      --link: #1d4ed8;
+      --link-hover: #9a3412;
+      --shadow-sm: 0 1px 2px rgba(26, 24, 20, 0.04), 0 2px 8px rgba(26, 24, 20, 0.04);
+      --shadow-md: 0 4px 16px rgba(26, 24, 20, 0.08);
+      --radius: 12px;
+      --radius-sm: 8px;
+      --maxw: 1180px;
+      --font-display: "Fraunces", Georgia, serif;
+      --font-body: "Spline Sans", system-ui, sans-serif;
+      --font-mono: "Spline Sans Mono", ui-monospace, monospace;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #14130f;
+        --bg-elevated: #1c1a15;
+        --bg-card: #211e18;
+        --ink: #f0ebe0;
+        --ink-soft: #c4bdaf;
+        --ink-faint: #8a8276;
+        --line: #322e26;
+        --line-strong: #443f34;
+        --accent: #fb923c;
+        --accent-soft: #fdba74;
+        --accent-bg: #2a1d12;
+        --link: #93c5fd;
+        --link-hover: #fdba74;
+        --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.25);
+        --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.4);
+      }
+    }
+
+    /* Override manual via toggle (atributo no <html>) */
+    html[data-theme="light"] {
+      --bg: #f4f1ea; --bg-elevated: #fbfaf6; --bg-card: #ffffff;
+      --ink: #1a1814; --ink-soft: #4a463e; --ink-faint: #837c6e;
+      --line: #ddd6c8; --line-strong: #c4bba8;
+      --accent: #9a3412; --accent-soft: #c2410c; --accent-bg: #fdeee5;
+      --link: #1d4ed8; --link-hover: #9a3412;
+      --shadow-sm: 0 1px 2px rgba(26,24,20,.04), 0 2px 8px rgba(26,24,20,.04);
+      --shadow-md: 0 4px 16px rgba(26,24,20,.08);
+    }
+    html[data-theme="dark"] {
+      --bg: #14130f; --bg-elevated: #1c1a15; --bg-card: #211e18;
+      --ink: #f0ebe0; --ink-soft: #c4bdaf; --ink-faint: #8a8276;
+      --line: #322e26; --line-strong: #443f34;
+      --accent: #fb923c; --accent-soft: #fdba74; --accent-bg: #2a1d12;
+      --link: #93c5fd; --link-hover: #fdba74;
+      --shadow-sm: 0 1px 2px rgba(0,0,0,.3), 0 2px 8px rgba(0,0,0,.25);
+      --shadow-md: 0 4px 20px rgba(0,0,0,.4);
+    }
+
+    /* ============================================================
+       RESET & BASE
+       ============================================================ */
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 90px; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      transition: background-color .3s ease, color .3s ease;
+    }
+
+    /* Textura sutil de fundo */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: .4;
+      background-image: radial-gradient(var(--line) 0.5px, transparent 0.5px);
+      background-size: 22px 22px;
+      mask-image: linear-gradient(to bottom, transparent, #000 30%, #000 70%, transparent);
+    }
+
+    a { color: var(--link); text-decoration: none; }
+    a:hover { color: var(--link-hover); }
+    a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 3px;
+    }
+
+    /* ============================================================
+       SKIP LINK (acessibilidade)
+       ============================================================ */
+    .skip-link {
+      position: absolute;
+      left: -999px;
+      top: 0;
+      background: var(--accent);
+      color: #fff;
+      padding: .6rem 1rem;
+      z-index: 200;
+      border-radius: 0 0 var(--radius-sm) 0;
+    }
+    .skip-link:focus { left: 0; color: #fff; }
+
+    /* ============================================================
+       HEADER FIXO
+       ============================================================ */
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: color-mix(in srgb, var(--bg-elevated) 88%, transparent);
+      backdrop-filter: blur(12px) saturate(1.4);
+      -webkit-backdrop-filter: blur(12px) saturate(1.4);
+      border-bottom: 1px solid var(--line);
+    }
+    .topbar__inner {
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: .7rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .topbar__brand {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: 1.05rem;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .topbar__brand .mark {
+      color: var(--accent);
+      font-size: 1.3rem;
+      line-height: 1;
+    }
+    .topbar__search {
+      flex: 1 1 240px;
+      min-width: 160px;
+      position: relative;
+    }
+    .topbar__search input {
+      width: 100%;
+      font-family: var(--font-body);
+      font-size: .92rem;
+      padding: .55rem .9rem .55rem 2.2rem;
+      border: 1px solid var(--line-strong);
+      border-radius: 999px;
+      background: var(--bg-card);
+      color: var(--ink);
+      transition: border-color .2s, box-shadow .2s;
+    }
+    .topbar__search input:focus {
+      outline: none;
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-bg);
+    }
+    .topbar__search::before {
+      content: "⌕";
+      position: absolute;
+      left: .85rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--ink-faint);
+      font-size: 1.1rem;
+      pointer-events: none;
+    }
+    .theme-toggle {
+      flex: 0 0 auto;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 1px solid var(--line-strong);
+      background: var(--bg-card);
+      color: var(--ink);
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: grid;
+      place-items: center;
+      transition: background .2s, transform .2s, border-color .2s;
+    }
+    .theme-toggle:hover { transform: rotate(15deg); border-color: var(--accent); }
+    .theme-toggle:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    /* ============================================================
+       LAYOUT PRINCIPAL
+       ============================================================ */
+    .shell {
+      position: relative;
+      z-index: 1;
+      max-width: var(--maxw);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 4.5rem 0 2.5rem;
+      border-bottom: 2px solid var(--ink);
+      margin-bottom: 3rem;
+      position: relative;
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 900;
+      font-size: clamp(2.6rem, 7vw, 5rem);
+      line-height: 0.98;
+      letter-spacing: -0.03em;
+      margin: 0 0 1rem;
+      color: var(--ink);
+    }
+    .hero h1 .year {
+      color: var(--accent);
+      font-style: italic;
+    }
+    .hero p {
+      font-size: clamp(1rem, 2vw, 1.2rem);
+      color: var(--ink-soft);
+      max-width: 56ch;
+      margin: 0;
+    }
+    .hero__meta {
+      margin-top: 1.5rem;
+      font-family: var(--font-mono);
+      font-size: .8rem;
+      color: var(--ink-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ÍNDICE / NAV */
+    .toc {
+      margin-bottom: 3.5rem;
+    }
+    .toc h2 {
+      font-family: var(--font-mono);
+      font-size: .8rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--ink-faint);
+      margin: 0 0 1rem;
+      font-weight: 500;
+    }
+    .toc__grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: .5rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .toc__grid a {
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .7rem .9rem;
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-sm);
+      color: var(--ink-soft);
+      font-size: .9rem;
+      font-weight: 500;
+      transition: all .18s ease;
+    }
+    .toc__grid a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+    .toc__grid .num {
+      font-family: var(--font-mono);
+      font-size: .72rem;
+      color: var(--ink-faint);
+      font-weight: 600;
+    }
+
+    /* SEÇÕES */
+    .section { margin-bottom: 4rem; scroll-margin-top: 90px; }
+    .section__head {
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      margin-bottom: 1.8rem;
+      padding-bottom: .8rem;
+      border-bottom: 1px solid var(--line-strong);
+    }
+    .section__head h2 {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: clamp(1.6rem, 3.5vw, 2.3rem);
+      letter-spacing: -0.02em;
+      margin: 0;
+      color: var(--ink);
+    }
+    .section__head .count {
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      color: var(--ink-faint);
+      margin-left: auto;
+      white-space: nowrap;
+    }
+
+    .subsection { margin-bottom: 2.2rem; }
+    .subsection h3 {
+      font-family: var(--font-body);
+      font-weight: 700;
+      font-size: 1.02rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--accent);
+      margin: 0 0 1rem;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+    .subsection h3::before {
+      content: "";
+      width: 18px;
+      height: 2px;
+      background: var(--accent);
+      flex: 0 0 auto;
+    }
+
+    /* GRID DE CARDS DE LINK — padrão único para todo o site */
+    .links {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: .9rem;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .links li {
+      background: var(--bg-card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 1rem 1.1rem;
+      transition: border-color .18s, transform .18s, box-shadow .18s;
+      position: relative;
+      overflow: hidden;
+    }
+    .links li::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--accent);
+      transform: scaleY(0);
+      transform-origin: top;
+      transition: transform .2s ease;
+    }
+    .links li:hover {
+      border-color: var(--line-strong);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .links li:hover::before { transform: scaleY(1); }
+    .links a {
+      font-weight: 600;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+    }
+    .links a::after {
+      content: "↗";
+      font-size: .75rem;
+      opacity: 0;
+      transform: translate(-3px, 3px);
+      transition: all .18s ease;
+      color: var(--ink-faint);
+    }
+    .links li:hover a::after { opacity: 1; transform: translate(0, 0); }
+    .links .desc {
+      display: block;
+      margin-top: .35rem;
+      font-size: .88rem;
+      line-height: 1.5;
+      color: var(--ink-soft);
+    }
+
+    /* Estado "nenhum resultado" da busca */
+    .no-results {
+      display: none;
+      text-align: center;
+      padding: 3rem 1rem;
+      color: var(--ink-faint);
+      font-family: var(--font-mono);
+      font-size: .9rem;
+    }
+    body.searching .section,
+    body.searching .toc { /* mantém visíveis; controle fino via .is-hidden */ }
+    .is-hidden { display: none !important; }
+
+    /* "Voltar ao topo" por seção */
+    .back-top {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      margin-top: 1.4rem;
+      font-family: var(--font-mono);
+      font-size: .78rem;
+      color: var(--ink-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+    .back-top:hover { color: var(--accent); }
+
+    /* FOOTER */
+    footer.site {
+      position: relative;
+      z-index: 1;
+      border-top: 2px solid var(--ink);
+      margin-top: 4rem;
+      padding: 2.5rem 0 3.5rem;
+    }
+    footer.site .shell {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    footer.site p {
+      margin: 0;
+      font-family: var(--font-mono);
+      font-size: .82rem;
+      color: var(--ink-faint);
+    }
+    footer.site .name { color: var(--ink-soft); font-weight: 500; }
+
+    /* Botão flutuante voltar ao topo */
+    .fab {
+      position: fixed;
+      right: 1.5rem;
+      bottom: 1.5rem;
+      z-index: 90;
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 1.3rem;
+      display: grid;
+      place-items: center;
+      box-shadow: var(--shadow-md);
+      opacity: 0;
+      transform: translateY(20px) scale(.8);
+      pointer-events: none;
+      transition: all .25s ease;
+    }
+    .fab.show { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+    .fab:hover { background: var(--accent-soft); }
+    .fab:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+
+    /* Reveal animado na carga */
+    @media (prefers-reduced-motion: no-preference) {
+      .section, .hero, .toc { animation: rise .6s ease backwards; }
+      .toc { animation-delay: .05s; }
+      @keyframes rise {
+        from { opacity: 0; transform: translateY(16px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    }
+
+    @media (max-width: 600px) {
+      .shell { padding: 0 1.1rem; }
+      .hero { padding: 3rem 0 2rem; }
+      .topbar__inner { padding: .6rem 1.1rem; }
+      .topbar__brand { font-size: .95rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <!-- ===================== TOPO FIXO ===================== -->
+  <header class="topbar">
+    <div class="topbar__inner">
+      <a class="topbar__brand" href="#topo" aria-label="Sites Úteis em 2026 — início">
+        <span class="mark" aria-hidden="true">◆</span> Sites Úteis
+      </a>
+      <div class="topbar__search">
+        <label for="busca" class="skip-link">Buscar links</label>
+        <input type="search" id="busca" placeholder="Buscar ferramentas, sites, temas…"
+               autocomplete="off" aria-label="Buscar links no diretório">
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button"
+              aria-label="Alternar tema claro/escuro" title="Alternar tema">
+        <span aria-hidden="true">◐</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <!-- ===================== HERO ===================== -->
+    <div class="shell">
+      <section class="hero" id="topo">
+        <h1>Sites Úteis em <span class="year">2026</span></h1>
+        <p>Curadoria pessoal de recursos para inteligência artificial, programação,
+           pesquisa acadêmica e produtividade.</p>
+        <p class="hero__meta">Curadoria de Augusto Seixas · Atualizado em maio de 2026</p>
+      </section>
+
+      <!-- ===================== ÍNDICE ===================== -->
+      <nav class="toc" aria-label="Índice de seções">
+        <h2>Índice</h2>
+        <ul class="toc__grid">
+          <li><a href="#ia"><span class="num">01</span> Inteligência Artificial</a></li>
+          <li><a href="#prompt-eng"><span class="num">02</span> Engenharia de Prompt</a></li>
+          <li><a href="#dev"><span class="num">03</span> Programação</a></li>
+          <li><a href="#devops"><span class="num">04</span> Monitoramento &amp; DevOps</a></li>
+          <li><a href="#python"><span class="num">05</span> Ecossistema Python</a></li>
+          <li><a href="#estatistica"><span class="num">06</span> Estatística &amp; R</a></li>
+          <li><a href="#pesquisa"><span class="num">07</span> Pesquisa</a></li>
+          <li><a href="#unicamp"><span class="num">08</span> UNICAMP</a></li>
+          <li><a href="#ferramentas"><span class="num">09</span> Programas Úteis</a></li>
+          <li><a href="#imagens"><span class="num">10</span> Bancos de Imagens</a></li>
+          <li><a href="#tech"><span class="num">11</span> Tecnologia</a></li>
+          <li><a href="#apple"><span class="num">12</span> Ecossistema Apple</a></li>
+          <li><a href="#google"><span class="num">13</span> Ecossistema Google</a></li>
+        </ul>
+      </nav>
+
+      <p class="no-results" id="noResults">Nenhum resultado encontrado para a busca.</p>
+
+      <!-- ===================== 01 · IA ===================== -->
+      <section class="section" id="ia">
+        <div class="section__head">
+          <h2>Inteligência Artificial</h2>
+          <span class="count" aria-hidden="true">01</span>
+        </div>
+
+        <div class="subsection">
+          <h3>Agentes Conversacionais (LLM)</h3>
+          <ul class="links">
+            <li><a href="https://chatgpt.com/" target="_blank" rel="noopener noreferrer">ChatGPT</a><span class="desc">Assistente geral de alta qualidade para texto, código e análise.</span></li>
+            <li><a href="https://chatgpt.com/gpts" target="_blank" rel="noopener noreferrer">ChatGPT – GPTs</a><span class="desc">Diretório de agentes personalizados baseados em LLM, criados por usuários e organizações.</span></li>
+            <li><a href="https://chatgpt.com/gpts/mine" target="_blank" rel="noopener noreferrer">ChatGPT – Meus GPTs</a><span class="desc">Área de criação, edição e gerenciamento de GPTs personalizados.</span></li>
+            <li><a href="https://chatgpt.com/images" target="_blank" rel="noopener noreferrer">ChatGPT Images</a><span class="desc">Geração e edição de imagens por IA, integrada ao ecossistema ChatGPT.</span></li>
+            <li><a href="https://chatgpt.com/codex" target="_blank" rel="noopener noreferrer">ChatGPT Codex</a><span class="desc">Interface do ChatGPT especializada em geração, análise e explicação de código.</span></li>
+            <li><a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">Claude</a><span class="desc">Forte em escrita, leitura e raciocínio. Bom para textos longos.</span></li>
+            <li><a href="https://gemini.google.com/app" target="_blank" rel="noopener noreferrer">Gemini</a><span class="desc">IA do Google, integrada ao ecossistema da empresa.</span></li>
+            <li><a href="https://perplexity.ai" target="_blank" rel="noopener noreferrer">Perplexity</a><span class="desc">Busca com IA: sintetiza respostas e cita fontes.</span></li>
+            <li><a href="https://copilot.microsoft.com/" target="_blank" rel="noopener noreferrer">Copilot</a><span class="desc">Assistente da Microsoft para produtividade.</span></li>
+            <li><a href="https://chat.deepseek.com/" target="_blank" rel="noopener noreferrer">DeepSeek</a><span class="desc">Plataforma chinesa forte em código e raciocínio.</span></li>
+            <li><a href="https://www.kimi.com/" target="_blank" rel="noopener noreferrer">Kimi</a><span class="desc">Assistente de IA chinês (Moonshot). Bom para comparação e tarefas gerais.</span></li>
+            <li><a href="https://chat.qwenlm.ai/" target="_blank" rel="noopener noreferrer">QwenLM Chat</a><span class="desc">LLM da Alibaba com integração de ecossistema.</span></li>
+            <li><a href="https://ernie.baidu.com/" target="_blank" rel="noopener noreferrer">ERNIE (Baidu)</a><span class="desc">LLM/assistente da Baidu, integrado ao ecossistema chinês.</span></li>
+            <li><a href="https://mistral.ai/" target="_blank" rel="noopener noreferrer">Mistral AI – Le Chat</a><span class="desc">Modelos europeus com viés de abertura.</span></li>
+            <li><a href="https://x.ai/" target="_blank" rel="noopener noreferrer">Grok</a><span class="desc">IA da xAI. Tom informal/experimental.</span></li>
+            <li><a href="https://z.ai/" target="_blank" rel="noopener noreferrer">Z.ai</a><span class="desc">Assistente conversacional baseado em LLM, voltado a tarefas gerais e produtividade. Startup asiática.</span></li>
+            <li><a href="https://www.meta.ai/" target="_blank" rel="noopener noreferrer">Meta AI</a><span class="desc">Assistente integrado ao ecossistema Meta.</span></li>
+            <li><a href="https://pi.ai" target="_blank" rel="noopener noreferrer">Pi</a><span class="desc">Assistente conversacional focado em diálogo pessoal.</span></li>
+            <li><a href="https://lobechat.com/chat" target="_blank" rel="noopener noreferrer">LobeChat</a><span class="desc">Cliente open-source para conversar via API.</span></li>
+            <li><a href="https://authentication.liveperson.net/?lang=pt-BR" target="_blank" rel="noopener noreferrer">LivePerson</a><span class="desc">Plataforma de IA conversacional para atendimento ao cliente e automação empresarial.</span></li>
+            <li><a href="https://www.ibm.com/granite/playground" target="_blank" rel="noopener noreferrer">IBM Granite Playground</a><span class="desc">Ambiente interativo para experimentar e testar os modelos de linguagem Granite da IBM, com interface prática para prototipagem e exploração de capacidades de IA empresarial.</span></li>
+            <li><a href="https://theresanaiforthat.com/" target="_blank" rel="noopener noreferrer">There's An AI For That</a><span class="desc">Diretório abrangente de ferramentas de IA organizadas por categoria e caso de uso.</span></li>
+            <li><a href="https://soberania.ai/" target="_blank" rel="noopener noreferrer">SoberanIA</a><span class="desc">IA generativa com foco no contexto e nas necessidades brasileiras.</span></li>
+            <li><a href="https://stablediffusionweb.com/" target="_blank" rel="noopener noreferrer">Stable Diffusion Online</a><span class="desc">Plataforma online para geração, edição e criação de imagens e vídeos com IA.</span></li>
+            <li><a href="https://aistudio.xiaomimimo.com/" target="_blank" rel="noopener noreferrer">Xiaomi MiMo Studio</a><span class="desc">Ambiente interativo para explorar o modelo de raciocínio MiMo da Xiaomi.</span></li>
+            <li><a href="https://mimo.xiaomi.com/mimo-v2-pro" target="_blank" rel="noopener noreferrer">MiMo-V2-Pro</a><span class="desc">Versão Pro do modelo de linguagem e raciocínio MiMo da Xiaomi.</span></li>
+          </ul>
+        </div>
+
+        <div class="subsection">
+          <h3>Ferramentas de Produtividade com LLM</h3>
+          <ul class="links">
+            <li><a href="https://notebooklm.google/" target="_blank" rel="noopener noreferrer">NotebookLM</a><span class="desc">Consulta e análise de documentos pessoais com IA do Google.</span></li>
+            <li><a href="https://www.notion.so/product/ai" target="_blank" rel="noopener noreferrer">Notion AI</a><span class="desc">IA integrada para resumos e organização de notas.</span></li>
+            <li><a href="https://tactiq.io/" target="_blank" rel="noopener noreferrer">Tactiq</a><span class="desc">Transcrição automática de reuniões com resumos por IA.</span></li>
+            <li><a href="https://www.mindmeister.com/app/home" target="_blank" rel="noopener noreferrer">MindMeister</a><span class="desc">Criação e colaboração em mapas mentais.</span></li>
+            <li><a href="https://www.chatpdf.com/" target="_blank" rel="noopener noreferrer">ChatPDF</a><span class="desc">Faça perguntas sobre PDFs e obtenha respostas com IA.</span></li>
+            <li><a href="https://obsidian.md/" target="_blank" rel="noopener noreferrer">Obsidian</a><span class="desc">Organização de notas pessoais com plugins de IA.</span></li>
+            <li><a href="https://www.synthesia.io/" target="_blank" rel="noopener noreferrer">Synthesia</a><span class="desc">Criação de vídeos com avatares de IA a partir de texto.</span></li>
+            <li><a href="https://aifreeforever.com/tools/youtube" target="_blank" rel="noopener noreferrer">AI Free Forever – YouTube Tools</a><span class="desc">Ferramentas de IA gratuitas para criação e análise de conteúdo no YouTube.</span></li>
+          </ul>
+        </div>
+
+        <div class="subsection">
+          <h3>Avaliação de Modelos</h3>
+          <ul class="links">
+            <li><a href="https://lmarena.ai/" target="_blank" rel="noopener noreferrer">LM Arena</a><span class="desc">Plataforma para comparar modelos de linguagem com rankings.</span></li>
+            <li><a href="https://lmarena.ai/leaderboard" target="_blank" rel="noopener noreferrer">LM Arena Leaderboard</a><span class="desc">Ranking comparativo de desempenho entre modelos.</span></li>
+          </ul>
+        </div>
+
+        <div class="subsection">
+          <h3>Plataformas de AutoML</h3>
+          <ul class="links">
+            <li><a href="https://www.aiologic.io/" target="_blank" rel="noopener noreferrer">AIO Logic</a><span class="desc">Plataforma de IA para automação de fluxos de trabalho com lógica de negócio.</span></li>
+            <li><a href="https://www.datarobot.com/" target="_blank" rel="noopener noreferrer">DataRobot</a><span class="desc">Plataforma de AutoML empresarial para criação e operação de modelos preditivos.</span></li>
+          </ul>
+        </div>
+
+        <a class="back-top" href="#topo">↑ Voltar ao índice</a>
+      </section>
+
+      <!-- ===================== 02 · PROMPT ===================== -->
+      <section class="section" id="prompt-eng">
+        <div class="section__head">
+          <h2>Engenharia de Prompt</h2>
+          <span class="count" aria-hidden="true">02</span>
+        </div>
+        <ul class="links">
+          <li><a href="https://www.promptingguide.ai/pt" target="_blank" rel="noopener noreferrer">Prompting Guide</a><span class="desc">Guia em português para engenharia de prompts.</span></li>
+          <li><a href="https://www.promptengine.cc/generate" target="_blank" rel="noopener noreferrer">Prompt Engine</a><span class="desc">Ferramenta para gerar prompts otimizados.</span></li>
+          <li><a href="https://github.com/f/awesome-chatgpt-prompts" target="_blank" rel="noopener noreferrer">Awesome ChatGPT Prompts</a><span class="desc">Coleção curada de exemplos úteis de prompts.</span></li>
+          <li><a href="https://prompts.chat/" target="_blank" rel="noopener noreferrer">Prompts.Chat</a><span class="desc">Coleção categorizada de prompts otimizados.</span></li>
+          <li><a href="https://www.prompthub.us/" target="_blank" rel="noopener noreferrer">Prompt Hub</a><span class="desc">Plataforma para descobrir, versionar e testar prompts.</span></li>
+        </ul>
+        <a class="back-top" href="#topo">↑ Voltar ao índice</a>
+      </section>
+
+      <!-- ===================== 03 · PROGRAMAÇÃO ===================== -->
+      <section class="section" id="dev">
+        <div class="section__head">
+          <h2>Programação e Desenvolvimento</h2>
+          <span class="count" aria-hidden="true">03</span>
+        </div>
+        <ul class="links">
+          <li><a href="https://colab.research.google.com/" target="_blank" rel="noopener noreferrer">Google Colab</a><span class="desc">Execute Python no navegador com acesso a GPUs.</span></li>
+          <li><a href="https://shell.cloud.google.com/" target="_blank" rel="noopener noreferrer">Google Cloud Shell</a><span class="desc">Ambiente de linha de comando no navegador.</span></li>
+          <li><a href="https://www.github.com" target="_blank" rel="noopener noreferrer">GitHub</a><span class="desc">Hospedagem de código e controle de versão.</span></li>
+          <li><a href="https://vscode.dev/" target="_blank" rel="noopener noreferrer">VS Code Online</a><span class="desc">Versão 100% online do Visual Studio Code.</span></li>
+          <li><a href="https://code.visualstudio.com/" target="_blank" rel="noopener noreferrer">Visual Studio Code</a><span class="desc">Portal oficial para download e documentação.</span></li>
+          <li><a href="https://www.overleaf.com/project" target="_blank" rel="noopener noreferrer">Overleaf LaTeX</a><span class="desc">Editor online colaborativo para LaTeX.</span></li>
+          <li><a href="https://www.stackoverflow.com" target="_blank" rel="noopener noreferrer">Stack Overflow</a><span class="desc">Comunidade para desenvolvedores.</span></li>
+          <li><a href="https://codepen.io/" target="_blank" rel="noopener noreferrer">CodePen</a><span class="desc">Ambiente de desenvolvimento social para front-end.</span></li>
+          <li><a href="https://aistudio.google.com/" target="_blank" rel="noopener noreferrer">Google AI Studio</a><span class="desc">Experimentar e prototipar com modelos Gemini.</span></li>
+          <li><a href="https://www.kaggle.com/" target="_blank" rel="noopener noreferrer">Kaggle</a><span class="desc">Competições e comunidade para ciência de dados.</span></li>
+          <li><a href="https://platform.openai.com/" target="_blank" rel="noopener noreferrer">OpenAI Platform</a><span class="desc">Plataforma para desenvolvimento com APIs de modelos de linguagem, imagem e áudio da OpenAI.</span></li>
+          <li><a href="https://app.powerbi.com/singleSignOn?ru=https%3A%2F%2Fapp.powerbi.com%2F%3FnoSignUpCheck%3D1" target="_blank" rel="noopener noreferrer">Microsoft Power BI</a><span class="desc">Plataforma de análise de dados e visualização de business intelligence.</span></li>
+          <li><a href="https://www.w3schools.com/" target="_blank" rel="noopener noreferrer">W3Schools</a><span class="desc">Referência web interativa para HTML, CSS, JavaScript e outras linguagens.</span></li>
+          <li><a href="https://exercism.org/" target="_blank" rel="noopener noreferrer">Exercism</a><span class="desc">Prática de programação com exercícios e mentoria em mais de 60 linguagens.</span></li>
+          <li><a href="https://www.codingame.com/start/" target="_blank" rel="noopener noreferrer">CodinGame</a><span class="desc">Aprendizado de programação por meio de jogos e desafios interativos.</span></li>
+          <li><a href="https://www.hackerrank.com/" target="_blank" rel="noopener noreferrer">HackerRank</a><span class="desc">Desafios de programação e testes técnicos para preparação profissional.</span></li>
+          <li><a href="https://www.codewars.com/" target="_blank" rel="noopener noreferrer">Codewars</a><span class="desc">Prática de programação por meio de katas com sistema de ranking.</span></li>
+          <li><a href="https://cssbattle.dev/" target="_blank" rel="noopener noreferrer">CSS Battle</a><span class="desc">Desafios de CSS para aprimorar habilidades em front-end.</span></li>
+          <li><a href="https://code.claude.com/docs/en/common-workflows" target="_blank" rel="noopener noreferrer">Claude Code Docs</a><span class="desc">Documentação oficial do Claude Code com fluxos de trabalho comuns para desenvolvimento assistido por IA.</span></li>
+          <li><a href="https://developer.chrome.com/docs/web-platform/blink?hl=pt-br" target="_blank" rel="noopener noreferrer">Blink – Chrome Developers</a><span class="desc">Documentação sobre o Blink, motor de renderização do Chrome.</span></li>
+          <li><a href="https://download-chromium.appspot.com/" target="_blank" rel="noopener noreferrer">Download Chromium</a><span class="desc">Download de versões do Chromium para desenvolvimento e testes.</span></li>
+          <li><a href="https://site.alphacode.com.br/" target="_blank" rel="noopener noreferrer">Alphacode</a><span class="desc">Empresa brasileira especializada em desenvolvimento de aplicativos.</span></li>
+        </ul>
+
+        <div class="subsection" style="margin-top:2.2rem">
+          <h3>Repositórios de Referência em IA</h3>
+          <ul class="links">
+            <li><a href="https://github.com/sdv-dev/CTGAN" target="_blank" rel="noopener noreferrer">CTGAN</a><span class="desc">Geração de dados tabulares sintéticos com redes adversariais generativas.</span></li>
+            <li><a href="https://github.com/nvlabs/stylegan" target="_blank" rel="noopener noreferrer">StyleGAN</a><span class="desc">Geração de imagens realistas via GAN, desenvolvido pela NVIDIA.</span></li>
+            <li><a href="https://stylegan-human.github.io/" target="_blank" rel="noopener noreferrer">StyleGAN Human</a><span class="desc">Síntese de imagens fotorrealistas de pessoas com StyleGAN.</span></li>
+            <li><a href="https://github.com/chrisdonahue/wavegan" target="_blank" rel="noopener noreferrer">WaveGAN</a><span class="desc">Geração de áudio bruto com redes adversariais generativas.</span></li>
+          </ul>
+        </div>
+
+        <a class="back-top" href="#topo">↑ Voltar ao índice</a>
+      </section>
+
+      <!-- ===================== 04 · DEVOPS ===================== -->
+      <section class="section" id="devops">
+        <div class="section__head">
+          <h2>Monitoramento &amp; DevOps</h2>
+          <span class="count" aria-hidden="true">04</span>
+        </div>
+        <ul class="links">
+          <li><a href="https://dashboard.uptimerobot.com/" target="_blank" rel="noopener noreferrer">UptimeRobot</a><span class="desc">Verifica sites, APIs e portas 24/7 e envia alertas.</span></li>
+          <li><a href="https://downdetector.com.br/en/" target="_blank" rel="noopener noreferrer">Downdetector BR</a><span class="desc">Monitoramento em tempo real de falhas e interrupções de serviços digitais.</span></li>
+        </ul>
+        <a class="back-top" href="#topo">↑ Voltar ao índice</a>
+      </section>
+
+      <!-- ===================== 05 · PYTHON ===================== -->
+      <section class="section" id="python">
+        <div class="section__head">
+          <h2>Ecossistema Python</h2>
+          <span class="count" aria-hidden="true">05</span>
+        </div>
+
+        <div class="subsection">
+          <h3>Documentação Oficial</h3>
+          <ul class="links">
+            <li><a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">Python.org</a><span class="desc">Portal oficial com documentação técnica completa.</span></li>
+            <li><a href="https://docs.python.org/3/" target="_blank" rel="noopener noreferrer">Python 3 Docs</a><span class="desc">Documentação oficial da versão 3.x.</span></li>
+          </ul>
+        </div>
+        <div class="subsection">
+          <h3>Ambientes e Gestão de Pacotes</h3>
+          <ul class="links">
+            <li><a href="https://www.anaconda.com/docs/main" target="_blank" rel="noopener noreferrer">Anaconda Docs</a><span class="desc">Documentação técnica para uso do conda.</span></li>
+            <li><a href="https://learning.anaconda.com/courses/get-started-with-anaconda" target="_blank" rel="noopener noreferrer">Get Started with Anaconda</a><span class="desc">Curso oficial sobre primeiros passos.</span></li>
+            <li><a href="https://learning.anaconda.com/courses/jupyter-notebook-basics" target="_blank" rel="noopener noreferrer">Jupyter Notebook Basics</a><span class="desc">Fundamentos do Jupyter Notebook.</span></li>
+          </ul>
+        </div>
+        <div class="subsection">
+          <h3>Machine Learning &amp; Deep Learning</h3>
+          <ul class="links">
+            <li><a href="https://scikit-learn.org/stable/" target="_blank" rel="noopener noreferrer">Scikit-learn</a><span class="desc">Biblioteca para aprendizado de máquina em Python.</span></li>
+            <li><a href="https://www.tensorflow.org/?hl=pt-br" target="_blank" rel="noopener noreferrer">TensorFlow</a><span class="desc">Biblioteca para criação de modelos de ML.</span></li>
+            <li><a href="https://docs.pytorch.org/docs/stable/index.html" target="_blank" rel="noopener noreferrer">PyTorch</a><span class="desc">Biblioteca tensorial para aprendizagem profunda.</span></li>
+          </ul>
+        </div>
+        <div class="subsection">
+          <h3>Bibliotecas Fundamentais</h3>
+          <ul class="links">
+            <li><a href="https://numpy.org/doc/2.0/reference/" target="_blank" rel="noopener noreferrer">NumPy</a><span class="desc">Cálculos numéricos com arrays e matrizes.</span></li>
+            <li><a href="https://pandas.pydata.org/docs/user_guide/" target="_blank" rel="noopener noreferrer">Pandas</a><span class="desc">Manipulação e análise de dados em tabelas.</span></li>
+            <li><a href="https://matplotlib.org/" target="_blank" rel="noopener noreferrer">Matplotlib</a><span class="desc">Criação de gráficos e visualizações.</span></li>
+            <li><a href="https://seaborn.pydata.org/api.html" target="_blank" rel="noopener noreferrer">Seaborn</a><span class="desc">Visualizações estatísticas elegantes.</span></li>
+          </ul>
+        </div>
+        <div class="subsection">
+          <h3>Cursos e Plataformas de Prática</h3>
+          <ul class="links">
+            <li><a href="https://leetcode.com/" target="_blank" rel="noopener noreferrer">LeetCode</a><span class="desc">Desafios de algoritmos e estruturas de dados.</span></li>
+            <li><a href="https://www.kaggle.com/learn/python" target="_blank" rel="noopener noreferrer">Kaggle Learn – Python</a><span class="desc">Fundamentos práticos para ciência de dados.</span></li>
+            <li><a href="https://programming-24.mooc.fi/" target="_blank" rel="noopener noreferrer">MOOC FI Python (Helsinki)</a><span class="desc">Curso robusto com exercícios interativos.</span></li>
+            <li><a href="https://www.w3schools.com/python/" target="_blank" rel="noopener noreferrer">W3Schools Python</a><span class="desc">Guia interativo para consultas rápidas.</span></li>
+          </ul>
+        </div>
+        <div class="subsection">
+          <h3>IDEs Online</h3>
+          <ul class="links">
+            <li><a href="https://onecompiler.com/python/" target="_blank" rel="noopener noreferrer">OneCompiler Python</a><span class="desc">IDE rápida online para prototipagem.</span></li>
+            <li><a href="https://www.online-python.com/" target="_blank" rel="noopener noreferrer">Online Python</a><span class="desc">Ambiente online de execução e compartilhamento.</span></li>
+          </ul>
+        </div>
+
+        <a class="back-top" href="#topo">↑ Voltar ao índice</a>
+      </section>
+
+      <!-- ===================== 06 · ESTATÍSTICA ===================== -->
+      <section class="section" id="estatistica">
+        <div class="section__head">
+          <h2>Estatística, Aprendizado Estatístico e R</h2>
+          <span class="count" aria-hidden="true">06</span>
+        </div>
+        <ul class="links">
+          <li><a href="http://leg.ufpr.br/~ara/teach/ebas/" target="_blank" rel="noopener noreferrer">Estatística Descritiva e Inferencial (UFPR)</a><span class="desc">Curso da UFPR sobre estatística básica.</span></li>
+          <li><a href="http://leg.ufpr.br/~ara/teach/svm/" target="_blank" rel="noopener noreferrer">Modelos de Vetores de Suporte</a><span class="desc">Introdução ao Aprendizado Estatístico de Máquina.</span></li>
+          <li><a href="https://pt.r4ds.hadley.nz/" target="_blank" rel="noopener noreferrer">R para Ciência de Dados</a><span class="desc">Livro em português (2ª edição) de Hadley Wickham.</span></li>
+          <li><a href="https://spark.posit.co/" target="_blank" rel="noopener noreferrer">Sparklyr</a><span class="desc">Interface R moderna para Apache Spark.</span></li>
+          <li><a href="https://www.statista.com/" target="_blank" rel="noopener noreferrer">Statista</a><span class="desc">Portal de estatísticas, dados de mercado e estudos setoriais.</span></li>
+          <li><a href="https://www.itl.nist.gov/div898/handbook/index.htm" target="_blank" rel="noopener noreferrer">NIST/SEMATECH – Handbook of Statistical Methods</a><span class="desc">Manual técnico de referência em métodos estatísticos, publicado pelo Instituto Nacional de Padrões e Tecnologia dos EUA.</span></li>
+          <li><a href="https://www3.bcb.gov.br/expectativas2/#/consultaSeriesEstatisticas" target="_blank" rel="noopener noreferrer">Banco Central – Expectativas de Mercado</a><span class="desc">Consulta às séries de expectativas de mercado do Banco Central do Brasil.</span></li>
+        </ul>
+        <a class="back-top" href="#topo">↑ Voltar ao índice</a>
+      </section>
+
+      <!-- ===================== 07 · PESQUISA ===================== -->
+      <section class="section" id="pesquisa">
+        <div class="section__head">
+          <h2>Pesquisa</h2>
+          <span class="count" aria-hidden="true">07</span>
+        </div>
+        <ul class="links">
+          <li><a href="https://elicit.com/" target="_blank" rel="noopener noreferrer">Elicit</a><span class="desc">Assistente de IA para pesquisa acadêmica.</span></li>
+          <li><a href="https://scite.ai/" target="_blank" rel="noopener noreferrer">Scite</a><span class="desc">Encontra citações relacionadas com GPT.</span></li>
+          <li><a href="https://scholar.google.com.br/" target="_blank" rel="noopener noreferrer">Google Scholar</a><span class="desc">Busca de artigos acadêmicos.</span></li>
+          <li><a href="https://consensus.app/" target="_blank" rel="noopener noreferrer">Consensus AI</a><span class="desc">Busca acadêmica com LLM para sintetizar evidências.</span></li>
+          <li><a href="https://www.researchrabbit.ai/" target="_blank" rel="noopener noreferrer">ResearchRabbit</a><span class="desc">Descoberta e mapeamento de redes de citações.</span></li>
+          <li><a href="https://storm.genie.stanford.edu/" target="_blank" rel="noopener noreferrer">Stanford STORM AI</a><span class="desc">Sistema de curadoria de conhecimento com LLM.</span></li>
+          <li><a href="https://www.zotero.org/" target="_blank" rel="noopener noreferrer">Zotero</a><span class="desc">Gestor bibliográfico aberto.</span></li>
+          <li><a href="https://www.litmaps.com/" target="_blank" rel="noopener noreferrer">Litmaps</a><span class="desc">Mapeamento de relações entre artigos.</span></li>
+          <li><a href="https://sci-hub.se/" target="_blank" rel="noopener noreferrer">Sci-Hub</a><span class="desc">Acesso a artigos científicos.</span></li>
+          <li><a href="https://research.google/blog/pathways-language-model-palm-scaling-to-540-billion-parameters-for-breakthrough-performance/" target="_blank" rel="noopener noreferrer">PaLM – Pathways Language Model</a><span class="desc">Artigo técnico do Google sobre o modelo PaLM com 540 bilhões de parâmetros e desempenho de referência.</span></li>
+        </ul>
+        <a class="back-top" href="#topo">↑ Voltar ao índice</a>
+      </section>
+
+      <!-- ===================== 08 · UNICAMP ===================== -->
+      <section class="section" id="unicamp">
+        <div class="section__head">
+          <h2>Minha Alma Mater: UNICAMP</h2>
+          <span class="count" aria-hidden="true">08</span>
+        </div>
+        <ul class="links">
+          <li><a href="https://ic.unicamp.br/graduacao/ciencia-da-computacao/" target="_blank" rel="noopener noreferrer">IC – Ciência da Computação</a><span class="desc">Graduação em Ciência da Computação.</span></li>
+          <li><a href="https://www.dac.unicamp.br/sistemas/catalogos/grad/catalogo2025/cursos/42g/curriculo.html" target="_blank" rel="noopener noreferrer">Catálogo 2025 – Currículo Pleno</a><span class="desc">Currículo do curso de Ciência da Computação.</span></li>
+          <li><a href="https://ic.unicamp.br/graduacao/informacoes-para-alunos/disciplinas/programas-das-disciplinas-vigentes/programas-das-disciplinas/" target="_blank" rel="noopener noreferrer">Programa das Disciplinas</a><span class="desc">Ementas das disciplinas de Computação.</span></li>
+          <li><a href="https://susy.ic.unicamp.br:9999/mc102" target="_blank" rel="noopener noreferrer">Sistema SuSy – MC102</a><span class="desc">Sistema de submissão de exercícios.</span></li>
+          <li><a href="https://www.sbc.org.br/" target="_blank" rel="noopener noreferrer">SBC – Sociedade Brasileira de Computação</a><span class="desc">Portal oficial da principal entidade de Computação do Brasil.</span></li>
+          <li><a href="https://www.sbc.org.br/poscomp/" target="_blank" rel="noopener noreferrer">POSCOMP</a><span class="desc">Exame nacional para ingresso em programas de pós-graduação em Computação.</span></li>
+        </ul>
+        <a class="back-top" href="#topo">↑ Voltar ao índice</a>
+      </section>
+
+      <!-- ===================== 09 · PROGRAMAS ÚTEIS ===================== -->
+      <section class="section" id="ferramentas">
+        <div class="section__head">
+          <h2>Programas Úteis</h2>
+          <span class="count" aria-hidden="true">09</span>
+        </div>
+
+        <div class="subsection">
+          <h3>Segurança &amp; Privacidade</h3>
+          <ul class="links">
+            <li><a href="https://www.virustotal.com/" target="_blank" rel="noopener noreferrer">VirusTotal</a><span class="desc">Análise de arquivos e URLs em busca de malware.</span></li>
+            <li><a href="https://bitwarden.com/password-generator/" target="_blank" rel="noopener noreferrer">Bitwarden Password Generator</a><span class="desc">Gerador de senhas fortes.</span></li>
+            <li><a href="https://www.privacyguides.org/" target="_blank" rel="noopener noreferrer">Privacy Guides</a><span class="desc">Recomendações para segurança digital.</span></li>
+          </ul>
+        </div>
+        <div class="subsection">
+          <h3>Tradução, Linguagem &amp; Escrita</h3>
+          <ul class="links">
+            <li><a href="https://www.deepl.com/pt-BR/translator" target="_blank" rel="noopener noreferrer">DeepL</a><span class="desc">Tradutor baseado em IA com alta precisão.</span></li>
+            <li><a href="https://translate.google.com/" target="_blank" rel="noopener noreferrer">Google Tradutor</a><span class="desc">Tradutor automático gratuito.</span></li>
+            <li><a href="https://translate.google.com.br/?sl=auto&amp;tl=pt&amp;op=translate" target="_blank" rel="noopener noreferrer">Google Tradutor (PT-BR)</a><span class="desc">Versão brasileira com tradução automática para português.</span></li>
+            <li><a href="https://dicionario.priberam.org" target="_blank" rel="noopener noreferrer">Dicionário Priberam</a><span class="desc">Dicionário contemporâneo de português.</span></li>
+            <li><a href="https://quillbot.com/" target="_blank" rel="noopener noreferrer">QuillBot</a><span class="desc">Ferramenta de paráfrase, resumo e aprimoramento de texto com IA.</span></li>
+            <li><a href="https://www.grammarly.com/" target="_blank" rel="noopener noreferrer">Grammarly</a><span class="desc">Corretor gramatical e assistente de escrita em inglês com IA.</span></li>
+            <li><a href="https://pt.duolingo.com/" target="_blank" rel="noopener noreferrer">Duolingo</a><span class="desc">Plataforma gamificada para aprendizado de idiomas.</span></li>
+          </ul>
+        </div>
+        <div class="subsection">
+          <h3>Edição &amp; Conversão</h3>
+          <ul class="links">
+            <li><a href="https://www.ilovepdf.com/pt" target="_blank" rel="noopener noreferrer">ILovePDF</a><span class="desc">Ferramenta online para manipular PDFs.</span></li>
+            <li><a href="https://stirling.com/app/" target="_blank" rel="noopener noreferrer">Stirling PDF</a><span class="desc">Ferramenta open-source para PDFs.</span></li>
+            <li><a href="https://convertio.co/" target="_blank" rel="noopener noreferrer">Convertio</a><span class="desc">Conversão universal de arquivos.</span></li>
+            <li><a href="https://stackedit.io/" target="_blank" rel="noopener noreferrer">StackEdit</a><span class="desc">Editor Markdown online.</span></li>
+            <li><a href="https://www.canva.com/" target="_blank" rel="noopener noreferrer">Canva</a><span class="desc">Plataforma de design gráfico.</span></li>
+            <li><a href="https://fliphtml5.com/pt/" target="_blank" rel="noopener noreferrer">FlipHTML5</a><span class="desc">Criador de publicações digitais interativas em formato flipbook.</span></li>
+          </ul>
+        </div>
+        <div class="subsection">
+          <h3>Referência</h3>
+          <ul class="links">
+            <li><a href="https://www.wikipedia.org/" target="_blank" rel="noopener noreferrer">Wikipedia</a><span class="desc">Enciclopédia colaborativa online.</span></li>
+            <li><a href="https://archive.org/" target="_blank" rel="noopener noreferrer">Internet Archive</a><span class="desc">Biblioteca digital com livros e páginas web.</span></li>
+            <li><a href="https://pt.annas-archive.org/" target="_blank" rel="noopener noreferrer">Anna's Archive</a><span class="desc">Metabuscador de bibliotecas digitais.</span></li>
+            <li><a href="https://archive.is/" target="_blank" rel="noopener noreferrer">Archive.is</a><span class="desc">Arquivamento instantâneo de páginas web com link permanente.</span></li>
+          </ul>
+        </div>
+        <div class="subsection">
+          <h3>Educação &amp; Cursos Online</h3>
+          <ul class="links">
+            <li><a href="https://www.coursera.org/" target="_blank" rel="noopener noreferrer">Coursera</a><span class="desc">Plataforma global de cursos online com certificações de universidades e empresas líderes.</span></li>
+            <li><a href="https://mimo.org/" target="_blank" rel="noopener noreferrer">Mimo</a><span class="desc">Plataforma de aprendizado de programação web, Python e mais, com abordagem prática.</span></li>
+          </ul>
+        </div>
+        <div class="subsection">
+          <h3>Produtividade</h3>
+          <ul class="links">
+            <li><a href="https://track.toggl.com/timer" target="_blank" rel="noopener noreferrer">Toggl Track</a><span class="desc">Controle de tempo e produtividade.</span></li>
+            <li><a href="https://notepad.ink/folder/main" target="_blank" rel="noopener noreferrer">Notepad.ink</a><span class="desc">Bloco de notas online minimalista.</span></li>
+            <li><a href="https://www.dias-uteis.com/" target="_blank" rel="noopener noreferrer">Dias Úteis</a><span class="desc">Cálculo de dias úteis e feriados.</span></li>
+          </ul>
+        </div>
+
+        <a class="back-top" href="#topo">↑ Voltar ao índice</a>
+      </section>
+
+      <!-- ===================== 10 · IMAGENS ===================== -->
+      <section class="section" id="imagens">
+        <div class="section__head">
+          <h2>Bancos de Imagens Gratuitos</h2>
+          <span class="count" aria-hidden="true">10</span>
+        </div>
+        <ul class="links">
+          <li><a href="https://unsplash.com" target="_blank" rel="noopener noreferrer">Unsplash</a><span class="desc">Fotografias de alta resolução para uso comercial.</span></li>
+          <li><a href="https://www.pexels.com" target="_blank" rel="noopener noreferrer">Pexels</a><span class="desc">Fotografias e vídeos gratuitos.</span></li>
+          <li><a href="https://pixabay.com" target="_blank" rel="noopener noreferrer">Pixabay</a><span class="desc">Banco de imagens, ilustrações e vídeos.</span></li>
+          <li><a href="https://stocksnap.io" target="_blank" rel="noopener noreferrer">StockSnap</a><span class="desc">Fotos livres de direitos autorais.</span></li>
+          <li><a href="https://visualhunt.com" target="_blank" rel="noopener noreferrer">Visual Hunt</a><span class="desc">Imagens gratuitas para uso comercial.</span></li>
+          <li><a href="https://gratisography.com" target="_blank" rel="noopener noreferrer">Gratisography</a><span class="desc">Imagens criativas e não convencionais.</span></li>
+          <li><a href="https://kaboompics.com/" target="_blank" rel="noopener noreferrer">Kaboompics</a><span class="desc">Fotografia editorial e comercial gratuita para projetos criativos.</span></li>
+          <li><a href="https://freestocks.org/" target="_blank" rel="noopener noreferrer">Freestocks</a><span class="desc">Banco de imagens gratuitas de alta qualidade para uso livre.</span></li>
+          <li><a href="https://morguefile.com" target="_blank" rel="noopener noreferrer">Morguefile</a><span class="desc">Banco de fotos gratuitas para uso comercial e pessoal.</span></li>
+          <li><a href="https://negativespace.co" target="_blank" rel="noopener noreferrer">Negative Space</a><span class="desc">Fotografias em alta resolução com licença Creative Commons.</span></li>
+          <li><a href="https://www.foodiesfeed.com" target="_blank" rel="noopener noreferrer">Foodiesfeed</a><span class="desc">Banco especializado em fotografias de alimentos e gastronomia.</span></li>
+          <li><a href="http://foter.com" target="_blank" rel="noopener noreferrer">Foter</a><span class="desc">Agregador de imagens gratuitas com busca por licença.</span></li>
+          <li><a href="https://www.freeimages.com" target="_blank" rel="noopener noreferrer">FreeImages</a><span class="desc">Banco com ampla coleção de fotos gratuitas para diversos usos.</span></li>
+          <li><a href="http://www.rgbstock.com" target="_blank" rel="noopener noreferrer">RGBStock</a><span class="desc">Fotografias gratuitas com registro simples.</span></li>
+          <li><a href="https://picjumbo.com" target="_blank" rel="noopener noreferrer">picjumbo</a><span class="desc">Fotos gratuitas em alta resolução para projetos criativos.</span></li>
+          <li><a href="https://www.stockvault.net" target="_blank" rel="noopener noreferrer">StockVault</a><span class="desc">Banco de fotos, ilustrações e texturas gratuitas.</span></li>
+          <li><a href="https://br.freepik.com" target="_blank" rel="noopener noreferrer">Freepik</a><span class="desc">Vetores, fotos, ícones e PSD gratuitos e premium.</span></li>
+          <li><a href="https://www.flaticon.com" target="_blank" rel="noopener noreferrer">Flaticon</a><span class="desc">Maior banco de ícones vetoriais gratuitos e personalizáveis.</span></li>
+        </ul>
+        <a class="back-top" href="#topo">↑ Voltar ao índice</a>
+      </section>
+
+      <!-- ===================== 11 · TECNOLOGIA ===================== -->
+      <section class="section" id="tech">
+        <div class="section__head">
+          <h2>Tecnologia</h2>
+          <span class="count" aria-hidden="true">11</span>
+        </div>
+        <ul class="links">
+          <li><a href="https://www.tecmundo.com.br" target="_blank" rel="noopener noreferrer">Tecmundo</a><span class="desc">Notícias sobre tecnologia.</span></li>
+          <li><a href="https://www.wired.com" target="_blank" rel="noopener noreferrer">Wired</a><span class="desc">Revista sobre cultura e tecnologia.</span></li>
+          <li><a href="https://www.techtarget.com/whatis/" target="_blank" rel="noopener noreferrer">TechTarget WhatIs</a><span class="desc">Base de conhecimento e glossário.</span></li>
+        </ul>
+
+        <div class="subsection" style="margin-top:2.2rem">
+          <h3>Motores de Busca Alternativos</h3>
+          <ul class="links">
+            <li><a href="https://www.qwant.com/" target="_blank" rel="noopener noreferrer">Qwant</a><span class="desc">Motor de busca europeu focado em privacidade.</span></li>
+            <li><a href="https://ya.ru/" target="_blank" rel="noopener noreferrer">Yandex</a><span class="desc">Motor de busca russo.</span></li>
+            <li><a href="https://www.baidu.com/" target="_blank" rel="noopener noreferrer">Baidu</a><span class="desc">Principal motor de busca chinês.</span></li>
+          </ul>
+        </div>
+
+        <a class="back-top" href="#topo">↑ Voltar ao índice</a>
+      </section>
+
+      <!-- ===================== 12 · APPLE ===================== -->
+      <section class="section" id="apple">
+        <div class="section__head">
+          <h2>Ecossistema Apple</h2>
+          <span class="count" aria-hidden="true">12</span>
+        </div>
+        <ul class="links">
+          <li><a href="https://www.icloud.com/mail" target="_blank" rel="noopener noreferrer">iCloud Mail</a><span class="desc">E-mail seguro integrado ao ecossistema Apple.</span></li>
+          <li><a href="https://www.icloud.com/drive" target="_blank" rel="noopener noreferrer">iCloud Drive</a><span class="desc">Armazenamento em nuvem com sincronização.</span></li>
+          <li><a href="https://www.icloud.com/notes" target="_blank" rel="noopener noreferrer">Notas do iCloud</a><span class="desc">Anotações sincronizadas com checklists.</span></li>
+          <li><a href="https://www.icloud.com/pages" target="_blank" rel="noopener noreferrer">Pages</a><span class="desc">Editor de textos avançado e colaborativo.</span></li>
+          <li><a href="https://www.icloud.com/numbers" target="_blank" rel="noopener noreferrer">Numbers</a><span class="desc">Planilhas com colaboração em tempo real.</span></li>
+          <li><a href="https://www.icloud.com/keynote" target="_blank" rel="noopener noreferrer">Keynote</a><span class="desc">Criação de apresentações sofisticadas.</span></li>
+        </ul>
+        <a class="back-top" href="#topo">↑ Voltar ao índice</a>
+      </section>
+
+      <!-- ===================== 13 · GOOGLE ===================== -->
+      <section class="section" id="google">
+        <div class="section__head">
+          <h2>Ecossistema Google</h2>
+          <span class="count" aria-hidden="true">13</span>
+        </div>
+        <ul class="links">
+          <li><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a><span class="desc">Plataforma de vídeos com recomendações por IA.</span></li>
+          <li><a href="https://www.google.com" target="_blank" rel="noopener noreferrer">Google</a><span class="desc">Principal mecanismo de busca.</span></li>
+          <li><a href="https://mail.google.com" target="_blank" rel="noopener noreferrer">Gmail</a><span class="desc">Serviço de e-mail do Google.</span></li>
+          <li><a href="https://drive.google.com" target="_blank" rel="noopener noreferrer">Google Drive</a><span class="desc">Armazenamento em nuvem.</span></li>
+          <li><a href="https://news.google.com/" target="_blank" rel="noopener noreferrer">Google News</a><span class="desc">Agregador de notícias em tempo real.</span></li>
+          <li><a href="https://keep.google.com/" target="_blank" rel="noopener noreferrer">Google Keep</a><span class="desc">Anotações e listas em nuvem.</span></li>
+        </ul>
+        <a class="back-top" href="#topo">↑ Voltar ao índice</a>
+      </section>
+    </div>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="site">
+    <div class="shell">
+      <p class="name">© 2026 Augusto Seixas</p>
+      <p>Última atualização: 15 de maio de 2026 ·
+         <a href="https://creativecommons.org/licenses/by/4.0/deed.pt" target="_blank" rel="noopener noreferrer license">CC BY 4.0</a></p>
+    </div>
+  </footer>
+
+  <button class="fab" id="toTop" type="button" aria-label="Voltar ao topo">↑</button>
+
+  <script>
+    // ============================================================
+    //  TEMA — alterna claro/escuro e persiste em localStorage
+    // ============================================================
+    (function () {
+      var root = document.documentElement;
+      var toggle = document.getElementById('themeToggle');
+      var KEY = 'su2026-theme';
+
+      var saved = null;
+      try { saved = localStorage.getItem(KEY); } catch (e) {}
+      if (saved === 'light' || saved === 'dark') {
+        root.setAttribute('data-theme', saved);
+      }
+
+      function current() {
+        var attr = root.getAttribute('data-theme');
+        if (attr) return attr;
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      }
+
+      toggle.addEventListener('click', function () {
+        var next = current() === 'dark' ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem(KEY, next); } catch (e) {}
+      });
+    })();
+
+    // ============================================================
+    //  BUSCA INSTANTÂNEA — filtra cards, subseções e seções
+    // ============================================================
+    (function () {
+      var input = document.getElementById('busca');
+      var noResults = document.getElementById('noResults');
+      var sections = Array.prototype.slice.call(document.querySelectorAll('.section'));
+      var toc = document.querySelector('.toc');
+
+      function normalize(s) {
+        return s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+      }
+
+      function run(term) {
+        term = normalize(term.trim());
+        var searching = term.length > 0;
+        document.body.classList.toggle('searching', searching);
+        toc.classList.toggle('is-hidden', searching);
+
+        var anyVisible = false;
+
+        sections.forEach(function (section) {
+          var items = section.querySelectorAll('.links li');
+          var sectionHasMatch = false;
+
+          items.forEach(function (li) {
+            var text = normalize(li.textContent);
+            var match = !searching || text.indexOf(term) !== -1;
+            li.classList.toggle('is-hidden', !match);
+            if (match) sectionHasMatch = true;
+          });
+
+          // Oculta subseções vazias
+          section.querySelectorAll('.subsection').forEach(function (sub) {
+            var visible = sub.querySelectorAll('.links li:not(.is-hidden)').length > 0;
+            sub.classList.toggle('is-hidden', searching && !visible);
+          });
+
+          section.classList.toggle('is-hidden', searching && !sectionHasMatch);
+          if (sectionHasMatch) anyVisible = true;
+        });
+
+        noResults.style.display = (searching && !anyVisible) ? 'block' : 'none';
+      }
+
+      input.addEventListener('input', function () { run(input.value); });
+      // Limpa busca com ESC
+      input.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') { input.value = ''; run(''); input.blur(); }
+      });
+    })();
+
+    // ============================================================
+    //  BOTÃO "VOLTAR AO TOPO"
+    // ============================================================
+    (function () {
+      var fab = document.getElementById('toTop');
+      var ticking = false;
+
+      function update() {
+        fab.classList.toggle('show', window.scrollY > 600);
+        ticking = false;
+      }
+      window.addEventListener('scroll', function () {
+        if (!ticking) { window.requestAnimationFrame(update); ticking = true; }
+      }, { passive: true });
+
+      fab.addEventListener('click', function () {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    })();
+  </script>
+</body>
+
+</html>
